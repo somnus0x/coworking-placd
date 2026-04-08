@@ -1,0 +1,62 @@
+---
+import Base from '../layouts/Base.astro';
+import SpotCard from '../components/SpotCard.astro';
+import FilterBar from '../components/FilterBar.astro';
+import spots from '../data/spots.json';
+import '../styles/global.css';
+
+const featured = spots.filter(s => s.featured);
+const rest = spots.filter(s => !s.featured);
+const allSpots = [...featured, ...rest];
+---
+
+<Base>
+  <div class="max-w-3xl mx-auto px-4 py-12">
+    <!-- Header -->
+    <header class="mb-12">
+      <h1 class="font-display text-4xl sm:text-5xl font-bold text-neutral-100 mb-3">
+        placd<span class="text-accent">.</span>
+      </h1>
+      <p class="text-lg text-neutral-400 max-w-xl">
+        Free places to work in Bangkok. Cafes, libraries, malls, hidden spots. No coworking fees. Just show up with a laptop.
+      </p>
+      <div class="flex gap-4 mt-4 text-sm text-muted">
+        <span>{spots.length} spots</span>
+        <span>·</span>
+        <span>Curated, not scraped</span>
+        <span>·</span>
+        <span>Updated manually</span>
+      </div>
+    </header>
+
+    <!-- Rating Legend -->
+    <div class="flex flex-wrap gap-4 text-xs text-muted mb-6 bg-surface-raised border border-border rounded-lg p-3">
+      <span><span class="text-accent font-medium">WiFi</span> — speed & reliability</span>
+      <span><span class="text-accent font-medium">Power</span> — outlet availability</span>
+      <span><span class="text-accent font-medium">Quiet</span> — noise level (more = quieter)</span>
+      <span><span class="text-accent font-medium">Laptop</span> — how welcome is your laptop</span>
+    </div>
+
+    <!-- Filters -->
+    <FilterBar />
+
+    <!-- Spots Grid -->
+    <div class="grid gap-4" id="spots-grid">
+      {allSpots.map(spot => (
+        <div data-area={spot.area} data-type={spot.type}>
+          <SpotCard spot={spot} />
+        </div>
+      ))}
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-16 pt-8 border-t border-border text-center">
+      <p class="text-sm text-muted">
+        Know a spot? <a href="https://github.com/thuf1r/coworking-placd" class="text-accent hover:underline">Open a PR</a> or DM.
+      </p>
+      <p class="text-xs text-neutral-600 mt-2">
+        Built in Bangkok. Not affiliated with any venue.
+      </p>
+    </footer>
+  </div>
+</Base>
