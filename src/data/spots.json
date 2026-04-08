@@ -16,7 +16,8 @@
     "best_hours": "10:00–18:00 weekdays",
     "description": "Top floor of Central Embassy. Part bookstore, part open lounge. Massive space, nobody bothers you. The go-to free workspace for people who know.",
     "tips": "Weekday mornings are empty. Weekends get crowded with families. Grab a seat near the windows for natural light.",
-    "google_maps": "https://maps.app.goo.gl/open-house-central-embassy",
+    "image": "/images/open-house.jpg",
+    "google_maps": "https://www.google.com/maps/search/Open+House+Central+Embassy+Bangkok",
     "featured": true
   },
   {
@@ -36,7 +37,8 @@
     "best_hours": "09:00–00:00 daily",
     "description": "Purpose-built for nomads. Library area, private call rooms, plugs on every desk, 8-hour wifi with any purchase. Turns into a bar with live bands Friday/weekends after 7pm. 95% laptop-friendly rating.",
     "tips": "One drink gets you 8 hours of wifi. The Crispy Pork Scrambled Eggs are legendary. Upload speed (66 Mbps) is better than download (15 Mbps) — great for video calls.",
-    "google_maps": "https://maps.app.goo.gl/paper-plane-project",
+    "image": "/images/paper-plane.jpg",
+    "google_maps": "https://www.google.com/maps/search/Paper+Plane+Project+Bangkok",
     "featured": true
   },
   {
@@ -56,7 +58,8 @@
     "best_hours": "10:00–15:00 weekdays",
     "description": "Two-story Starbucks Reserve with floor-to-ceiling river views. Huge space means you always find a seat. The view alone changes your energy.",
     "tips": "Go upstairs for quieter seating. Weekday mornings are dead — feels like your private office. Shuttle boat from Saphan Taksin is free.",
-    "google_maps": "https://maps.app.goo.gl/starbucks-reserve-iconsiam",
+    "image": "/images/starbucks-iconsiam.jpg",
+    "google_maps": "https://www.google.com/maps/search/Starbucks+Reserve+ICONSIAM+Bangkok",
     "featured": true
   },
   {
@@ -76,13 +79,14 @@
     "best_hours": "10:30–19:00 (closed Mon)",
     "description": "Government-funded design library. Quiet floors, fast wifi, surrounded by design and architecture books. The resource center has curated collections worth browsing between deep work sessions.",
     "tips": "The 5th floor co-working area has the best outlets. Closed Mondays. Bring your own charger cable — outlets are Thai-style.",
-    "google_maps": "https://maps.app.goo.gl/tcdc-bangkok",
+    "image": "/images/tcdc.jpg",
+    "google_maps": "https://www.google.com/maps/search/TCDC+Thailand+Creative+Design+Center+Bangkok",
     "featured": false
   },
   {
     "id": "samyan-mitrtown-library",
-    "name": "Samyan Mitrtown Library",
-    "subtitle": "Samyan Mitrtown, 5th Floor",
+    "name": "Samyan CO-OP",
+    "subtitle": "Samyan Mitrtown",
     "area": "Sam Yan",
     "nearest_bts": null,
     "nearest_mrt": "Sam Yan",
@@ -94,9 +98,10 @@
     "laptop_friendly": 5,
     "cost": "Free",
     "best_hours": "Open 24 hours (co-living zone on ground floor)",
-    "description": "Mall library with a 24-hour zone on the ground floor. Air-conditioned, well-lit, plenty of outlets. The upstairs library is proper quiet. Downstairs co-living zone never closes.",
+    "description": "Mall library with a 24-hour zone on the ground floor. Air-conditioned, well-lit, plenty of outlets. The upstairs library is proper quiet. Downstairs co-living zone never closes. Multiple seating zones for solo or group work.",
     "tips": "The 24-hour zone gets packed with Chula students during exam season (Nov-Dec, Apr-May). Otherwise it's great. The mall food court is cheap.",
-    "google_maps": "https://maps.app.goo.gl/samyan-mitrtown",
+    "image": "/images/samyan-coop.jpg",
+    "google_maps": "https://www.google.com/maps/search/Samyan+CO-OP+Samyan+Mitrtown+Bangkok",
     "featured": true
   },
   {
@@ -116,7 +121,8 @@
     "best_hours": "22:00–06:00 (the vibe is late-night)",
     "description": "The original Bangkok late-night work cafe. 24 hours, cheap drinks, surrounded by Chula students grinding. Not quiet, not pretty — but it's open when everything else is closed.",
     "tips": "Don't come here for peace. Come here for energy at 2am when you need to push through. The iced chocolate is weirdly good.",
-    "google_maps": "https://maps.app.goo.gl/too-fast-to-sleep",
+    "image": "/images/too-fast-to-sleep.jpg",
+    "google_maps": "https://www.google.com/maps/search/Too+Fast+To+Sleep+Bangkok",
     "featured": false
   },
   {
@@ -136,7 +142,8 @@
     "best_hours": "10:00–14:00 weekdays",
     "description": "Open-air community mall in Thonglor. Multiple cafes and restaurants. The top floor (The Garden) has communal tables. More social than productive, but the energy is good for creative work.",
     "tips": "Power outlets are scarce — bring a full charge. The Roast cafe on the top floor is the most laptop-friendly tenant. Gets loud after 17:00.",
-    "google_maps": "https://maps.app.goo.gl/the-commons-thonglor",
+    "image": "/images/the-commons.jpg",
+    "google_maps": "https://www.google.com/maps/search/The+Commons+Thonglor+Bangkok",
     "featured": false
   },
   {
@@ -156,7 +163,8 @@
     "best_hours": "09:30–17:00 (closed Mon)",
     "description": "Bangkok's oldest English-language library, built 1922. Colonial architecture, garden courtyard, genuinely peaceful. The cafe in the garden is where you work. Inside the library itself is members-only but the garden and cafe are open.",
     "tips": "Limited outlets so charge up first. The garden is magical in the morning. Membership is 1,500 THB/year if you want inside access.",
-    "google_maps": "https://maps.app.goo.gl/neilson-hays-library",
+    "image": "/images/neilson-hays.jpg",
+    "google_maps": "https://www.google.com/maps/search/Neilson+Hays+Library+Bangkok",
     "featured": false
   },
   {
@@ -176,7 +184,8 @@
     "best_hours": "09:00–15:00",
     "description": "Big airy cafe in Ekkamai with high ceilings and natural light. Good brunch menu. The back area is quieter and more work-friendly. Staff don't mind long stays.",
     "tips": "The back section past the bar has more outlets. Avoid the front patio if you need to focus — it faces the soi.",
-    "google_maps": "https://maps.app.goo.gl/featherstone-ekkamai",
+    "image": "/images/featherstone.jpg",
+    "google_maps": "https://www.google.com/maps/search/Featherstone+Bistro+Ekkamai+Bangkok",
     "featured": false
   },
   {
@@ -195,7 +204,8 @@
     "cost": "Free (True customers) / Buy a True SIM",
     "description": "True (Thai telecom) runs free coworking spaces in malls. CentralWorld location is the biggest. Fast wifi (it's a telecom company), plenty of outlets, meeting rooms bookable. Just need a True SIM or account.",
     "tips": "If you don't have True, grab a tourist SIM for 300 THB — you get the workspace free forever. Also in Siam Paragon and other CentralPlaza malls.",
-    "google_maps": "https://maps.app.goo.gl/truespace-centralworld",
+    "image": "/images/truespace.jpg",
+    "google_maps": "https://www.google.com/maps/search/TrueSpace+CentralWorld+Bangkok",
     "featured": true
   },
   {
@@ -215,7 +225,8 @@
     "best_hours": "10:00–20:00 daily",
     "description": "KBank's free coworking space in Siam Square. Multiple seating zones, meeting rooms for group work, vending machines for snacks. Free wifi and power outlets everywhere. One of the best-kept secrets in central Bangkok.",
     "tips": "Meeting rooms are first-come-first-served. The upper floor is quieter. Right in the middle of Siam — food options everywhere within walking distance.",
-    "google_maps": "https://maps.app.goo.gl/kloud-kbank-siam",
+    "image": "/images/kloud-kbank.jpg",
+    "google_maps": "https://www.google.com/maps/search/KLOUD+by+KBANK+Siam+Square+Bangkok",
     "featured": true
   },
   {
@@ -235,7 +246,8 @@
     "best_hours": "10:00–19:00 Tue–Sun (closed Mon)",
     "description": "Art library inside BACC. Quiet, air-conditioned, surrounded by art books and exhibitions. Work between gallery visits. The building itself is worth exploring on breaks.",
     "tips": "Closed Mondays. The cafe on the ground floor has decent coffee if you need a break. Free exhibitions change monthly — good for creative inspiration between work blocks.",
-    "google_maps": "https://maps.app.goo.gl/bacc-bangkok",
+    "image": "/images/bacc.jpg",
+    "google_maps": "https://www.google.com/maps/search/Bangkok+Art+and+Culture+Centre+BACC",
     "featured": false
   },
   {
@@ -255,7 +267,8 @@
     "best_hours": "08:00–17:00 daily",
     "description": "Noble property developer's community space right at BTS Ploenchit. Beautiful interior, mix of sofa zones and work desks. Cafe on-site. Nobody checks if you're a Noble resident — just walk in.",
     "tips": "Closes at 5pm which limits it for late workers. But for a free morning-to-afternoon workspace next to BTS, it's hard to beat. Gets quiet after lunch.",
-    "google_maps": "https://maps.app.goo.gl/noble-play-ploenchit",
+    "image": "/images/noble-play.jpg",
+    "google_maps": "https://www.google.com/maps/search/Noble+PLAY+Ploenchit+Bangkok",
     "featured": false
   },
   {
@@ -275,7 +288,8 @@
     "best_hours": "09:30–20:00 Tue–Sun (closed Mon)",
     "description": "Library inside the Bank of Thailand learning center with Chao Phraya river views. Quiet, well-maintained, free wifi and charging stations. One of the most peaceful workspaces in Bangkok that nobody talks about.",
     "tips": "The river-view seats are the prize. Come early to grab one. Open until 8pm — unusually late for a government library. Closed Mondays.",
-    "google_maps": "https://maps.app.goo.gl/bot-library-bangkok",
+    "image": "/images/bot-library.jpg",
+    "google_maps": "https://www.google.com/maps/search/Bank+of+Thailand+Learning+Center+Bangkok",
     "featured": false
   },
   {
@@ -295,7 +309,8 @@
     "best_hours": "10:00–18:00 Wed–Sun",
     "description": "Library inside the Jim Thompson Art Center. Small but beautiful. Curated book collection on Thai art, architecture, and culture. Cafe on-site. Exhibition space doubles as a break spot.",
     "tips": "Only open Wed–Sun. Limited power outlets — bring a full charge. Best for short focused sessions (2-3 hours) with gallery breaks. The cafe makes good matcha.",
-    "google_maps": "https://maps.app.goo.gl/william-warren-library",
+    "image": "/images/william-warren.jpg",
+    "google_maps": "https://www.google.com/maps/search/Jim+Thompson+Art+Center+Bangkok",
     "featured": false
   }
 ]
