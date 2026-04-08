@@ -119,8 +119,9 @@
     "laptop_friendly": 4,
     "cost": "60–120 THB",
     "best_hours": "22:00–06:00 (the vibe is late-night)",
-    "description": "The original Bangkok late-night work cafe. 24 hours, cheap drinks, surrounded by Chula students grinding. Not quiet, not pretty — but it's open when everything else is closed.",
-    "tips": "Don't come here for peace. Come here for energy at 2am when you need to push through. The iced chocolate is weirdly good.",
+    "description": "The original Bangkok late-night work cafe. Permanently closed. RIP to a legend — this was the spot that proved 2am productivity was a valid lifestyle. Keeping it here as a memorial.",
+    "tips": "Closed permanently. If you need a late-night spot near Sam Yan, Samyan CO-OP's 24-hour zone is the closest replacement.",
+    "closed": true,
     "image": "/images/too-fast-to-sleep.jpg",
     "google_maps": "https://www.google.com/maps/search/Too+Fast+To+Sleep+Bangkok",
     "featured": false
