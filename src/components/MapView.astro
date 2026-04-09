@@ -54,6 +54,83 @@ const spotsJson = JSON.stringify(spots);
       .addAttribution('&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>')
       .addTo(map);
 
+    // ── BTS & MRT transit lines ──────────────────────────────────
+    // BTS Sukhumvit Line (green) — key stations near spots
+    var btsSukhumvit = [
+      [13.7649, 100.5380], // Mo Chit
+      [13.7580, 100.5376], // Saphan Khwai
+      [13.7536, 100.5399], // Ari
+      [13.7502, 100.5416], // Sanam Pao
+      [13.7470, 100.5420], // Victory Monument
+      [13.7459, 100.5345], // Phaya Thai
+      [13.7457, 100.5294], // Ratchathewi
+      [13.7453, 100.5326], // Siam
+      [13.7437, 100.5468], // Ploenchit
+      [13.7408, 100.5530], // Nana
+      [13.7375, 100.5609], // Asok
+      [13.7350, 100.5689], // Phrom Phong
+      [13.7302, 100.5782], // Thong Lo
+      [13.7239, 100.5853], // Ekkamai
+    ];
+    L.polyline(btsSukhumvit, {
+      color: '#5cb85c', weight: 3, opacity: 0.5, dashArray: '8 6',
+    }).addTo(map);
+
+    // BTS Silom Line (dark green) — key stations
+    var btsSilom = [
+      [13.7453, 100.5326], // Siam (interchange)
+      [13.7466, 100.5390], // Chit Lom (via Ratchadamri)
+      [13.7430, 100.5390], // Ratchadamri
+      [13.7350, 100.5380], // Sala Daeng
+      [13.7260, 100.5310], // Chong Nonsi
+      [13.7220, 100.5280], // Surasak
+      [13.7189, 100.5145], // Saphan Taksin
+    ];
+    L.polyline(btsSilom, {
+      color: '#2d8a4e', weight: 3, opacity: 0.5, dashArray: '8 6',
+    }).addTo(map);
+
+    // MRT Blue Line — key stations near spots
+    var mrtBlue = [
+      [13.7649, 100.5380], // Chatuchak (near Mo Chit)
+      [13.7580, 100.5470], // Phahon Yothin
+      [13.7536, 100.5520], // Lat Phrao
+      [13.7502, 100.5560], // Ratchadaphisek
+      [13.7460, 100.5610], // Sutthisan
+      [13.7410, 100.5623], // Huai Khwang
+      [13.7375, 100.5609], // Sukhumvit (Asok interchange)
+      [13.7340, 100.5570], // Queen Sirikit
+      [13.7300, 100.5510], // Khlong Toei
+      [13.7260, 100.5450], // Lumphini
+      [13.7220, 100.5380], // Silom
+      [13.7230, 100.5280], // Sam Yan
+      [13.7310, 100.5210], // Hua Lamphong
+      [13.7380, 100.5130], // Wat Mangkon
+      [13.7480, 100.5100], // Sam Yot
+    ];
+    L.polyline(mrtBlue, {
+      color: '#1e5ba0', weight: 3, opacity: 0.5, dashArray: '8 6',
+    }).addTo(map);
+
+    // Station dots — small subtle circles at key interchanges
+    var interchanges = [
+      { name: 'Siam', coords: [13.7453, 100.5326] },
+      { name: 'Asok/Sukhumvit', coords: [13.7375, 100.5609] },
+      { name: 'Mo Chit/Chatuchak', coords: [13.7649, 100.5380] },
+      { name: 'Sam Yan', coords: [13.7230, 100.5280] },
+      { name: 'Saphan Taksin', coords: [13.7189, 100.5145] },
+    ];
+    interchanges.forEach(function(stn) {
+      L.circleMarker(stn.coords, {
+        radius: 3, fillColor: '#ffffff', color: '#0a0a0a',
+        weight: 1, fillOpacity: 0.4,
+      }).addTo(map).bindTooltip(stn.name, {
+        permanent: false, direction: 'top', className: 'transit-tooltip',
+        offset: [0, -5],
+      });
+    });
+
+    // ── Spot markers ──────────────────────────────────────────────
     const markers = [];
 
     spots.forEach(function(spot) {
@@ -184,5 +261,17 @@ const spotsJson = JSON.stringify(spots);
   }
   .placd-popup .leaflet-popup-content {
     margin: 12px 14px;
+  }
+  .transit-tooltip {
+    background: #1a1a1a !important;
+    border: 1px solid #333 !important;
+    color: #a3a3a3 !important;
+    font-size: 11px !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
+  }
+  .transit-tooltip::before {
+    border-top-color: #333 !important;
   }
 </style>
