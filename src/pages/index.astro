@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import SpotCard from '../components/SpotCard.astro';
 import FilterBar from '../components/FilterBar.astro';
+import MapView from '../components/MapView.astro';
 import spots from '../data/spots.json';
 import '../styles/global.css';
 
@@ -29,18 +30,49 @@ const allSpots = [...featured, ...rest];
       </div>
     </header>
 
-    <!-- Rating Legend -->
-    <div class="flex flex-wrap gap-4 text-xs text-muted mb-6 bg-surface-raised border border-border rounded-lg p-3">
-      <span><span class="text-accent font-medium">WiFi</span> — speed & reliability</span>
-      <span><span class="text-accent font-medium">Power</span> — outlet availability</span>
-      <span><span class="text-accent font-medium">Quiet</span> — noise level (more = quieter)</span>
-      <span><span class="text-accent font-medium">Laptop</span> — how welcome is your laptop</span>
+    <!-- View Toggle -->
+    <div class="flex items-center gap-2 mb-6">
+      <button
+        id="view-list"
+        class="view-toggle text-xs px-3 py-1.5 rounded-full border border-accent text-accent bg-accent/10 transition-all duration-150"
+        data-view="list"
+      >
+        ☰ List
+      </button>
+      <button
+        id="view-map"
+        class="view-toggle text-xs px-3 py-1.5 rounded-full border border-border text-muted hover:border-neutral-600 hover:text-neutral-300 transition-all duration-150"
+        data-view="map"
+      >
+        🗺 Map
+      </button>
+
+      <!-- Rating Legend (inline, list view only) -->
+      <div id="rating-legend" class="ml-auto flex flex-wrap gap-3 text-[11px] text-muted">
+        <span><span class="text-accent font-medium">WiFi</span> speed</span>
+        <span><span class="text-accent font-medium">Power</span> outlets</span>
+        <span><span class="text-accent font-medium">Quiet</span> noise</span>
+        <span><span class="text-accent font-medium">Laptop</span> welcome</span>
+      </div>
     </div>
 
     <!-- Filters -->
     <FilterBar />
 
-    <!-- Spots Grid -->
+    <!-- Map View -->
+    <div id="map-view" class="hidden mb-8">
+      <MapView />
+      <!-- Map Legend -->
+      <div class="flex flex-wrap gap-4 mt-3 text-xs text-muted">
+        <span><span class="inline-block w-2.5 h-2.5 rounded-full bg-amber-500 mr-1"></span>Cafe</span>
+        <span><span class="inline-block w-2.5 h-2.5 rounded-full bg-blue-500 mr-1"></span>Library</span>
+        <span><span class="inline-block w-2.5 h-2.5 rounded-full bg-purple-500 mr-1"></span>Lifestyle</span>
+        <span><span class="inline-block w-2.5 h-2.5 rounded-full bg-green-500 mr-1"></span>Free Coworking</span>
+        <span><span class="inline-block w-2.5 h-2.5 rounded-full bg-red-500 opacity-40 mr-1"></span>Closed</span>
+      </div>
+    </div>
+
+    <!-- Spots Grid (List View) -->
     <div class="grid gap-4" id="spots-grid">
       {allSpots.map(spot => (
         <div data-area={spot.area} data-type={spot.type}>
@@ -52,7 +84,7 @@ const allSpots = [...featured, ...rest];
     <!-- Footer -->
     <footer class="mt-16 pt-8 border-t border-border text-center">
       <p class="text-sm text-muted">
-        Know a spot? <a href="https://github.com/thuf1r/coworking-placd" class="text-accent hover:underline">Open a PR</a> or DM.
+        Know a spot? <a href="https://github.com/somnus0x/coworking-placd" class="text-accent hover:underline">Open a PR</a> or DM.
       </p>
       <p class="text-xs text-neutral-600 mt-2">
         Built in Bangkok. Not affiliated with any venue.
@@ -60,3 +92,40 @@ const allSpots = [...featured, ...rest];
     </footer>
   </div>
 </Base>
+
+<script>
+  const listBtn = document.getElementById('view-list')!;
+  const mapBtn = document.getElementById('view-map')!;
+  const spotsGrid = document.getElementById('spots-grid')!;
+  const mapView = document.getElementById('map-view')!;
+  const ratingLegend = document.getElementById('rating-legend')!;
+
+  function setView(view: string) {
+    if (view === 'map') {
+      spotsGrid.classList.add('hidden');
+      mapView.classList.remove('hidden');
+      ratingLegend.classList.add('hidden');
+      mapBtn.classList.remove('border-border', 'text-muted');
+      mapBtn.classList.add('border-accent', 'text-accent', 'bg-accent/10');
+      listBtn.classList.remove('border-accent', 'text-accent', 'bg-accent/10');
+      listBtn.classList.add('border-border', 'text-muted');
+      // Invalidate map size after showing
+      setTimeout(() => {
+        if ((window as any)._placdMap) {
+          (window as any)._placdMap.invalidateSize();
+        }
+      }, 100);
+    } else {
+      spotsGrid.classList.remove('hidden');
+      mapView.classList.add('hidden');
+      ratingLegend.classList.remove('hidden');
+      listBtn.classList.remove('border-border', 'text-muted');
+      listBtn.classList.add('border-accent', 'text-accent', 'bg-accent/10');
+      mapBtn.classList.remove('border-accent', 'text-accent', 'bg-accent/10');
+      mapBtn.classList.add('border-border', 'text-muted');
+    }
+  }
+
+  listBtn.addEventListener('click', () => setView('list'));
+  mapBtn.addEventListener('click', () => setView('map'));
+</script>

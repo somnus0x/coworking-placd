@@ -1,5 +1,5 @@
 ---
-const areas = ['All', 'Ploenchit', 'Ari', 'Riverside', 'Charoenkrung', 'Sam Yan', 'Thonglor', 'Ekkamai', 'Silom', 'Siam'];
+const areas = ['All', 'Ploenchit', 'Siam', 'Riverside', 'Charoenkrung', 'Sam Yan', 'Thonglor', 'Ekkamai', 'Silom', 'Ratchathewi'];
 const types = ['All', 'cafe', 'library', 'lifestyle-space', 'free-coworking'];
 const typeLabels: Record<string, string> = {
   'All': 'All Types',
@@ -79,6 +79,11 @@ const typeLabels: Record<string, string> = {
       el.classList.add('border-accent', 'text-accent', 'bg-accent/10');
 
       applyFilters();
+
+      // Notify map view of filter change
+      window.dispatchEvent(new CustomEvent('placd:filter', {
+        detail: { area: activeArea, type: activeType }
+      }));
     });
   });
 </script>

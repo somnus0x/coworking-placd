@@ -1,0 +1,189 @@
+---
+import spots from '../data/spots.json';
+
+const spotsJson = JSON.stringify(spots);
+---
+
+<div id="map-container" class="w-full rounded-xl border border-border overflow-hidden" style="height: 500px;">
+  <div id="map" class="w-full h-full"></div>
+</div>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script is:inline define:vars={{ spotsJson }}>
+  const spots = JSON.parse(spotsJson);
+
+  const typeColors = {
+    'cafe': '#f59e0b',
+    'library': '#3b82f6',
+    'lifestyle-space': '#a855f7',
+    'free-coworking': '#22c55e',
+  };
+
+  const typeEmoji = {
+    'cafe': '☕',
+    'library': '📚',
+    'lifestyle-space': '✨',
+    'free-coworking': '💻',
+  };
+
+  function initMap() {
+    if (window._placdMap) {
+      window._placdMap.remove();
+    }
+
+    // Center on Bangkok
+    const map = L.map('map', {
+      zoomControl: false,
+      attributionControl: false,
+    }).setView([13.7400, 100.5380], 13);
+
+    window._placdMap = map;
+
+    // Add zoom control to top-right
+    L.control.zoom({ position: 'topright' }).addTo(map);
+
+    // Dark tile layer
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      maxZoom: 19,
+    }).addTo(map);
+
+    // Attribution
+    L.control.attribution({ position: 'bottomright', prefix: false })
+      .addAttribution('&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>')
+      .addTo(map);
+
+    const markers = [];
+
+    spots.forEach(function(spot) {
+      if (!spot.lat || !spot.lng) return;
+
+      const color = typeColors[spot.type] || '#e8c547';
+      const isClosed = spot.closed || false;
+      const opacity = isClosed ? 0.4 : 1;
+
+      // Create custom circle marker
+      const marker = L.circleMarker([spot.lat, spot.lng], {
+        radius: spot.featured ? 10 : 7,
+        fillColor: isClosed ? '#ef4444' : color,
+        color: '#0a0a0a',
+        weight: 2,
+        opacity: opacity,
+        fillOpacity: isClosed ? 0.3 : 0.85,
+      }).addTo(map);
+
+      // Popup content
+      const ratingDots = function(val, max) {
+        max = max || 5;
+        let dots = '';
+        for (let i = 0; i < max; i++) {
+          dots += i < val ? '●' : '○';
+        }
+        return dots;
+      };
+
+      const transit = [
+        spot.nearest_bts ? 'BTS ' + spot.nearest_bts : null,
+        spot.nearest_mrt ? 'MRT ' + spot.nearest_mrt : null,
+      ].filter(Boolean).join(' · ');
+
+      const popupHtml = '<div style="font-family:Inter,system-ui,sans-serif;min-width:220px;max-width:280px;color:#e5e5e5;">' +
+        '<div style="font-family:\'Space Grotesk\',system-ui;font-weight:600;font-size:15px;margin-bottom:2px;">' +
+          spot.name +
+          (isClosed ? ' <span style="color:#ef4444;font-size:11px;">closed</span>' : '') +
+          (spot.featured && !isClosed ? ' <span style="color:#e8c547;font-size:11px;">★</span>' : '') +
+        '</div>' +
+        '<div style="font-size:12px;color:#a3a3a3;margin-bottom:6px;">' + spot.subtitle + '</div>' +
+        (transit ? '<div style="font-size:11px;color:#737373;margin-bottom:6px;">🚇 ' + transit + '</div>' : '') +
+        '<div style="font-size:12px;margin-bottom:6px;">' +
+          '<span style="color:' + color + ';">' + (typeEmoji[spot.type] || '') + ' ' + spot.type.replace('-', ' ') + '</span>' +
+          ' · <span style="color:#a3a3a3;">💰 ' + spot.cost + '</span>' +
+        '</div>' +
+        '<div style="font-size:11px;color:#d4d4d4;line-height:1.4;margin-bottom:8px;">' +
+          (spot.description.length > 120 ? spot.description.substring(0, 120) + '…' : spot.description) +
+        '</div>' +
+        '<div style="display:grid;grid-template-columns:1fr 1fr;gap:2px 12px;font-size:11px;margin-bottom:8px;">' +
+          '<div><span style="color:#e8c547;">WiFi</span> <span style="color:#a3a3a3;">' + ratingDots(spot.wifi) + '</span></div>' +
+          '<div><span style="color:#e8c547;">Power</span> <span style="color:#a3a3a3;">' + ratingDots(spot.power) + '</span></div>' +
+          '<div><span style="color:#e8c547;">Quiet</span> <span style="color:#a3a3a3;">' + ratingDots(spot.noise) + '</span></div>' +
+          '<div><span style="color:#e8c547;">Laptop</span> <span style="color:#a3a3a3;">' + ratingDots(spot.laptop_friendly) + '</span></div>' +
+        '</div>' +
+        '<div style="display:flex;gap:8px;font-size:12px;">' +
+          '<a href="' + spot.google_maps + '" target="_blank" rel="noopener" style="color:#e8c547;text-decoration:none;">📍 Maps</a>' +
+          '<a href="#' + spot.id + '" onclick="document.getElementById(\'view-list\').click();setTimeout(function(){document.getElementById(\'' + spot.id + '\').scrollIntoView({behavior:\'smooth\',block:\'center\'})},100);return false;" style="color:#e8c547;text-decoration:none;">↓ Card</a>' +
+        '</div>' +
+      '</div>';
+
+      marker.bindPopup(popupHtml, {
+        className: 'placd-popup',
+        closeButton: true,
+      });
+
+      marker.spotData = spot;
+      markers.push(marker);
+    });
+
+    // Fit bounds to all markers
+    if (markers.length > 0) {
+      const group = L.featureGroup(markers);
+      map.fitBounds(group.getBounds().pad(0.1));
+    }
+
+    // Store markers for filter integration
+    window._placdMarkers = markers;
+  }
+
+  // Init when map container is visible
+  if (document.getElementById('map')) {
+    initMap();
+  }
+
+  // Listen for filter changes to update markers
+  window.addEventListener('placd:filter', function(e) {
+    if (!window._placdMarkers || !window._placdMap) return;
+    const detail = e.detail || {};
+    const area = detail.area || 'All';
+    const type = detail.type || 'All';
+
+    window._placdMarkers.forEach(function(marker) {
+      const spot = marker.spotData;
+      const matchArea = area === 'All' || spot.area === area;
+      const matchType = type === 'All' || spot.type === type;
+
+      if (matchArea && matchType) {
+        if (!window._placdMap.hasLayer(marker)) {
+          marker.addTo(window._placdMap);
+        }
+      } else {
+        window._placdMap.removeLayer(marker);
+      }
+    });
+  });
+</script>
+
+<style is:global>
+  .placd-popup .leaflet-popup-content-wrapper {
+    background: #141414;
+    border: 1px solid #262626;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .placd-popup .leaflet-popup-tip {
+    background: #141414;
+    border: 1px solid #262626;
+    border-top: none;
+    border-right: none;
+  }
+  .placd-popup .leaflet-popup-close-button {
+    color: #737373 !important;
+    font-size: 18px !important;
+    padding: 6px 8px 0 0 !important;
+  }
+  .placd-popup .leaflet-popup-close-button:hover {
+    color: #e8c547 !important;
+  }
+  .placd-popup .leaflet-popup-content {
+    margin: 12px 14px;
+  }
+</style>
