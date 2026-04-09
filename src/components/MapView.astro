@@ -134,10 +134,9 @@ const spotsJson = JSON.stringify(spots);
     window._placdMarkers = markers;
   }
 
-  // Init when map container is visible
-  if (document.getElementById('map')) {
-    initMap();
-  }
+  // Defer init until map view is visible (container must have dimensions)
+  window._placdMapInit = initMap;
+  window._placdMapReady = false;
 
   // Listen for filter changes to update markers
   window.addEventListener('placd:filter', function(e) {

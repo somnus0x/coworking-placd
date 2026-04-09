@@ -109,12 +109,15 @@ const allSpots = [...featured, ...rest];
       mapBtn.classList.add('border-accent', 'text-accent', 'bg-accent/10');
       listBtn.classList.remove('border-accent', 'text-accent', 'bg-accent/10');
       listBtn.classList.add('border-border', 'text-muted');
-      // Invalidate map size after showing
+      // Init map on first show, invalidate on subsequent shows
       setTimeout(() => {
-        if ((window as any)._placdMap) {
+        if (!(window as any)._placdMapReady && (window as any)._placdMapInit) {
+          (window as any)._placdMapInit();
+          (window as any)._placdMapReady = true;
+        } else if ((window as any)._placdMap) {
           (window as any)._placdMap.invalidateSize();
         }
-      }, 100);
+      }, 50);
     } else {
       spotsGrid.classList.remove('hidden');
       mapView.classList.add('hidden');

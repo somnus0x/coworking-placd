@@ -18,6 +18,8 @@
     "tips": "Weekday mornings are empty. Weekends get crowded with families. Grab a seat near the windows for natural light.",
     "image": "/images/open-house.jpg",
     "google_maps": "https://www.google.com/maps/search/Open+House+Central+Embassy+Bangkok",
+    "lat": 13.7440,
+    "lng": 100.5467,
     "featured": true
   },
   {
@@ -39,6 +41,8 @@
     "tips": "One drink gets you 8 hours of wifi. The Crispy Pork Scrambled Eggs are legendary. Upload speed (66 Mbps) is better than download (15 Mbps) — great for video calls.",
     "image": "/images/paper-plane.jpg",
     "google_maps": "https://www.google.com/maps/search/Paper+Plane+Project+Bangkok",
+    "lat": 13.7223,
+    "lng": 100.5804,
     "featured": true
   },
   {
@@ -60,6 +64,8 @@
     "tips": "Go upstairs for quieter seating. Weekday mornings are dead — feels like your private office. Shuttle boat from Saphan Taksin is free.",
     "image": "/images/starbucks-iconsiam.jpg",
     "google_maps": "https://www.google.com/maps/search/Starbucks+Reserve+ICONSIAM+Bangkok",
+    "lat": 13.7268,
+    "lng": 100.5103,
     "featured": true
   },
   {
@@ -81,6 +87,8 @@
     "tips": "The 5th floor co-working area has the best outlets. Closed Mondays. Bring your own charger cable — outlets are Thai-style.",
     "image": "/images/tcdc.jpg",
     "google_maps": "https://www.google.com/maps/search/TCDC+Thailand+Creative+Design+Center+Bangkok",
+    "lat": 13.7271,
+    "lng": 100.5152,
     "featured": false
   },
   {
@@ -102,6 +110,8 @@
     "tips": "The 24-hour zone gets packed with Chula students during exam season (Nov-Dec, Apr-May). Otherwise it's great. The mall food court is cheap.",
     "image": "/images/samyan-coop.jpg",
     "google_maps": "https://www.google.com/maps/search/Samyan+CO-OP+Samyan+Mitrtown+Bangkok",
+    "lat": 13.7343,
+    "lng": 100.5283,
     "featured": true
   },
   {
@@ -124,6 +134,8 @@
     "closed": true,
     "image": "/images/too-fast-to-sleep.jpg",
     "google_maps": "https://www.google.com/maps/search/Too+Fast+To+Sleep+Bangkok",
+    "lat": 13.7423,
+    "lng": 100.5274,
     "featured": false
   },
   {
@@ -145,6 +157,8 @@
     "tips": "Power outlets are scarce — bring a full charge. The Roast cafe on the top floor is the most laptop-friendly tenant. Gets loud after 17:00.",
     "image": "/images/the-commons.jpg",
     "google_maps": "https://www.google.com/maps/search/The+Commons+Thonglor+Bangkok",
+    "lat": 13.7350,
+    "lng": 100.5822,
     "featured": false
   },
   {
@@ -166,6 +180,8 @@
     "tips": "Limited outlets so charge up first. The garden is magical in the morning. Membership is 1,500 THB/year if you want inside access.",
     "image": "/images/neilson-hays.jpg",
     "google_maps": "https://www.google.com/maps/search/Neilson+Hays+Library+Bangkok",
+    "lat": 13.7271,
+    "lng": 100.5230,
     "featured": false
   },
   {
@@ -187,6 +203,8 @@
     "tips": "The back section past the bar has more outlets. Avoid the front patio if you need to focus — it faces the soi.",
     "image": "/images/featherstone.jpg",
     "google_maps": "https://www.google.com/maps/search/Featherstone+Bistro+Ekkamai+Bangkok",
+    "lat": 13.7298,
+    "lng": 100.5930,
     "featured": false
   },
   {
@@ -207,6 +225,8 @@
     "tips": "If you don't have True, grab a tourist SIM for 300 THB — you get the workspace free forever. Also in Siam Paragon and other CentralPlaza malls.",
     "image": "/images/truespace.jpg",
     "google_maps": "https://www.google.com/maps/search/TrueSpace+CentralWorld+Bangkok",
+    "lat": 13.7466,
+    "lng": 100.5390,
     "featured": true
   },
   {
@@ -228,6 +248,8 @@
     "tips": "Meeting rooms are first-come-first-served. The upper floor is quieter. Right in the middle of Siam — food options everywhere within walking distance.",
     "image": "/images/kloud-kbank.jpg",
     "google_maps": "https://www.google.com/maps/search/KLOUD+by+KBANK+Siam+Square+Bangkok",
+    "lat": 13.7444,
+    "lng": 100.5326,
     "featured": true
   },
   {
@@ -249,6 +271,8 @@
     "tips": "Closed Mondays. The cafe on the ground floor has decent coffee if you need a break. Free exhibitions change monthly — good for creative inspiration between work blocks.",
     "image": "/images/bacc.jpg",
     "google_maps": "https://www.google.com/maps/search/Bangkok+Art+and+Culture+Centre+BACC",
+    "lat": 13.7468,
+    "lng": 100.5303,
     "featured": false
   },
   {
@@ -270,6 +294,8 @@
     "tips": "Closes at 5pm which limits it for late workers. But for a free morning-to-afternoon workspace next to BTS, it's hard to beat. Gets quiet after lunch.",
     "image": "/images/noble-play.jpg",
     "google_maps": "https://www.google.com/maps/search/Noble+PLAY+Ploenchit+Bangkok",
+    "lat": 13.7439,
+    "lng": 100.5486,
     "featured": false
   },
   {
@@ -291,6 +317,8 @@
     "tips": "The river-view seats are the prize. Come early to grab one. Open until 8pm — unusually late for a government library. Closed Mondays.",
     "image": "/images/bot-library.jpg",
     "google_maps": "https://www.google.com/maps/search/Bank+of+Thailand+Learning+Center+Bangkok",
+    "lat": 13.7675,
+    "lng": 100.4984,
     "featured": false
   },
   {
@@ -312,6 +340,8 @@
     "tips": "Only open Wed–Sun. Limited power outlets — bring a full charge. Best for short focused sessions (2-3 hours) with gallery breaks. The cafe makes good matcha.",
     "image": "/images/william-warren.jpg",
     "google_maps": "https://www.google.com/maps/search/Jim+Thompson+Art+Center+Bangkok",
+    "lat": 13.7487,
+    "lng": 100.5284,
     "featured": false
   },
   {
@@ -333,6 +363,8 @@
     "tips": "Ask a local — this one doesn't show up on nomad blogs for a reason. That's what makes it good.",
     "image": "/images/piccolo-viccolo.jpg",
     "google_maps": "https://maps.app.goo.gl/9Ej8KRWQVvWuMtAW7",
+    "lat": 13.7508,
+    "lng": 100.5333,
     "featured": false
   },
   {
@@ -354,6 +386,8 @@
     "tips": "Same concept as KLOUD by KBANK but in Paragon. Between this, TrueSpace, and KLOUD, you can work for free in three different malls within walking distance of each other.",
     "image": "/images/scb-paragon.jpg",
     "google_maps": "https://www.google.com/maps/search/SCB+Connect+Siam+Paragon+Bangkok",
+    "lat": 13.7468,
+    "lng": 100.5350,
     "featured": true
   }
 ]
