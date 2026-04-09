@@ -209,6 +209,12 @@ const spotsJson = JSON.stringify(spots);
 
     // Store markers for filter integration
     window._placdMarkers = markers;
+
+    // Replay any filter state set before map was initialized
+    var pendingFilter = window._placdFilterState;
+    if (pendingFilter && (pendingFilter.area !== 'All' || pendingFilter.type !== 'All')) {
+      window.dispatchEvent(new CustomEvent('placd:filter', { detail: pendingFilter }));
+    }
   }
 
   // Defer init until map view is visible (container must have dimensions)

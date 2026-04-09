@@ -80,6 +80,9 @@ const typeLabels: Record<string, string> = {
 
       applyFilters();
 
+      // Store current filter state for lazy map init replay
+      (window as any)._placdFilterState = { area: activeArea, type: activeType };
+
       // Notify map view of filter change
       window.dispatchEvent(new CustomEvent('placd:filter', {
         detail: { area: activeArea, type: activeType }
